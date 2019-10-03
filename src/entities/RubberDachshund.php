@@ -9,7 +9,7 @@ use CLI\Interfaces\SoundAble;
 class RubberDachshund implements SoundAble
 {
 
-    public function sound()
+    public function sound() : string
     {
         return "beep! beep!";
     }

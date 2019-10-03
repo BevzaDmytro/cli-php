@@ -6,7 +6,8 @@ namespace CLI\View;
 
 class View
 {
-    public function show($commandsData){
+    public function show( array $commandsData)
+    {
 
         if(!empty($commandsData)){
             extract($commandsData);

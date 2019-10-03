@@ -6,5 +6,5 @@ namespace CLI\Interfaces;
 
 interface SoundAble
 {
-    public function sound();
+    public function sound() : string;
 }

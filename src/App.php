@@ -18,7 +18,8 @@ class App
         $this->commandParser = new CommandParser(Config::$dogs, Config::$commands);
     }
 
-    public function start(){
+    public function start() : void
+    {
         $command = isset($_POST['command']) ? $_POST['command'] : null;
         if(!empty($command) ){
             $this->executeCommand($command);
@@ -27,7 +28,8 @@ class App
             $this->view->show([]);
         }
     }
-    private function executeCommand($command){
+    private function executeCommand(string $command) : void
+    {
         if($this->commandParser->isCommandRight($command)){
             $commandInterpreter = new CommandInterpreter(Config::$dogs);
             $commandResult = $commandInterpreter->executeCommand($this->commandParser->getDogName($command), $this->commandParser->getAction($command));

@@ -4,5 +4,5 @@ namespace CLI\Interfaces;
 
 interface HuntAble
 {
-    public function hunt();
+    public function hunt() : string ;
 }

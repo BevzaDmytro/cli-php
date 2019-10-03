@@ -40,13 +40,13 @@ class CommandParser
         return in_array($action, $this->actions);
     }
 
-    public function getDogName($command)
+    public function getDogName(string $command) : string
     {
         $result = explode(" ", $command);
         return $result[0];
     }
 
-    public function getAction($command)
+    public function getAction(string $command) : string
     {
         $result = explode(" ", $command);
         return $result[1];
