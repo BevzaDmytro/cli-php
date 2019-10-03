@@ -22,13 +22,13 @@ class App
     {
         $command = isset($_POST['command']) ? $_POST['command'] : null;
         if(!empty($command) ){
-            $this->executeCommand($command);
+            $this->handleCommand($command);
         }
         else {
             $this->view->show([]);
         }
     }
-    private function executeCommand(string $command) : void
+    private function handleCommand(string $command) : void
     {
         if($this->commandParser->isCommandRight($command)){
             $commandInterpreter = new CommandInterpreter(Config::$dogs);
