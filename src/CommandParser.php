@@ -12,26 +12,19 @@ class CommandParser
         $this->actions = $actions;
     }
 
-    public function parseCommand(string $command)
-    {
-        $result = explode(" ", $command);
-        $this->dog =  $result[0];
-        $this->action = $result[1];
-    }
-
     public function isCommandRight(string $command) : bool
     {
-        $result = explode(" ", $command);
+        $result = explode(" ", trim($command));
         if(count($result) !== 2 ) {
            return false;
         }
         else {
             $dogName = $result[0];
             $action = $result[1];
-            return $this->checkIsDogAvaliable($dogName) && $this->checkIsCommandExists($action);
+            return $this->checkIsDogExists($dogName) && $this->checkIsCommandExists($action);
         }
     }
-    public function checkIsDogAvaliable(string $dogName) : bool
+    public function checkIsDogExists(string $dogName) : bool
     {
         return array_key_exists($dogName, $this->dogs);
     }
@@ -42,13 +35,13 @@ class CommandParser
 
     public function getDogName(string $command) : string
     {
-        $result = explode(" ", $command);
+        $result = explode(" ", trim($command));
         return $result[0];
     }
 
     public function getAction(string $command) : string
     {
-        $result = explode(" ", $command);
+        $result = explode(" ", trim($command));
         return $result[1];
     }
 }
