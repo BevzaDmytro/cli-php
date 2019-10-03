@@ -1,0 +1,9 @@
+{
+    "name": "user/test-horoshop",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "CLI\\": "src/"
+        }
+    }
+}
